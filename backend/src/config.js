@@ -12,6 +12,10 @@ export const config = {
     },
     JWT:{
         secret: process.env.JWT_SECRET_KEY
+    },
+    email:{
+        emailUser: process.env.USER_EMAIL,
+        emailPass: process.env.USER_PASSWORD
     }
 }
 

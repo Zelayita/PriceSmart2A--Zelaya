@@ -11,6 +11,7 @@ import logoutRoutes from "./src/routes/logout.js"
 const app = express();
 import loginCustomerController from "./src/routes/LoginCustomer.js";
 import cors from "cors"
+import RegisterStudents from "./src/routes/Students.js";
 
 app.use(cookieParser());
 
@@ -24,6 +25,9 @@ app.use(cors({
 
 //Que acepte JSON desde postman
 app.use(express.json());
+
+//Students
+app.use("/api/registerStudents", RegisterStudents);
 
 app.use("/api/products", productRoutes);
 app.use("/api/branches", branchesRoutes);

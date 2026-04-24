@@ -1,4 +1,4 @@
-import jsonwebtoken, { JsonWebTokenError } from "jsonwebtoken" //Generar Tokens
+import jsonwebtoken from "jsonwebtoken" //Generar Tokens
 import bcrypt from "bcryptjs" //Encriptar la nueva Contraseña
 import crypto from "crypto"  //Generar codigos aleatorios
 import nodemailer from "nodemailer" //Enviar correos

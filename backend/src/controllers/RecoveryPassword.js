@@ -46,8 +46,8 @@ recoverypasswordController.requestCode = async (req,res) => {
         const Transporter = nodemailer.createTransport({
             service: "gmail",
             auth:{
-                user:config.email.user_email,
-                password:config.email.user_password
+                user: config.email.user_email,
+                pass: config.email.user_password
             }
         })
 
@@ -61,14 +61,12 @@ recoverypasswordController.requestCode = async (req,res) => {
         })
 
         //#Enviar el Correo
-        Transporter.sendMail(mailOptions, (error,info)=> {
-            if(error){
-                return res.status(500).json({message: "Error al enviar el correo", error})
-            }
-        });
-
-        return res.status(200).json({message: "email sent"})
-
+        try {
+        await Transporter.sendMail(mailOptions);
+            return res.status(200).json({message: "email sent"});
+        } catch (error) {
+            return res.status(500).json({message: "Error al enviar el correo", error});
+        }
 
     } catch (error) {
         console.log("error"+ error)
@@ -85,7 +83,7 @@ recoverypasswordController.Verifiedcode = async (req,res) => {
         
         //Obtenemos la informacion que esta adentro del token
         //Accedemos a la Cookie
-        const token = req.cokies.recoveryCookie
+        const token = req.cookies.recoveryCookie
         const decoded = jsonwebtoken.verify(token, config.JWT.secret)
 
         if(code !== decoded.randomCode){
@@ -109,7 +107,7 @@ recoverypasswordController.Verifiedcode = async (req,res) => {
     } catch (error) {
         return res.status(500).json({message:"Internal Server Error"})
     }
-}
+};
 
 
 recoverypasswordController.newPassword = async (req,res) => {

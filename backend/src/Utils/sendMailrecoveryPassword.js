@@ -1,7 +1,6 @@
 const HTMLrecoveryEmail = (code) => {
-    return
-    `
-      <div style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 20px; border: 1px solid #ddd; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+    return`
+        <div style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 20px; border: 1px solid #ddd; border-radius: 10px; max-width: 600px; margin: 0 auto;">
         <h1 style="color: #2c3e50; font-size: 24px; margin-bottom: 20px;">Password Recovery</h1>
         <p style="font-size: 16px; color: #555; line-height: 1.5;">
           Hello, we received a request to reset your password. Use the verification code below to proceed:
@@ -19,7 +18,6 @@ const HTMLrecoveryEmail = (code) => {
         </footer>
       </div>
     `;
- 
-}
+ }
 
 export default HTMLrecoveryEmail;

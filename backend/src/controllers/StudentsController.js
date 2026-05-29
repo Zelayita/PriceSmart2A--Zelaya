@@ -88,7 +88,7 @@ RegisterStudentsController.register = async(req,res) => {
         });
 
     }catch (error) {
-        consol.log("error" + error)
+        console.log("error" + error)
         return res.status(500).json({message:"Internal Server Error"})
     }
 };

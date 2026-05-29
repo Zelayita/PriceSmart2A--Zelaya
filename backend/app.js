@@ -13,6 +13,7 @@ const app = express();
 import loginCustomerController from "./src/routes/LoginCustomer.js";
 import cors from "cors"
 import RegisterStudents from "./src/routes/Students.js";
+import wompiroute from "./src/routes/wompiRoute.js"
 
 app.use(cookieParser());
 
@@ -40,5 +41,6 @@ app.use("/api/recoveryPassword", recoverypassword);
 app.use("/api/LoginCustomer", loginCustomerController);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/cart", cartRoutes);
+app.use("/api/wompi", wompiroute);
 
 export default app;
